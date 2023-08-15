@@ -148,8 +148,16 @@ const resetGame = () => {
 
     currentPlayer = playerOne;
     gameBoard.fill('');
-    document.getElementById('playerOneScore').textContent = playerOne.name + " has " + playerOne.score + " points."
-    document.getElementById('playerTwoScore').textContent = playerTwo.name + " has " + playerTwo.score + " points."
+    if (playerOne.score === 1) {
+        document.getElementById('playerOneScore').textContent = playerOne.name + " has " + playerOne.score + " point."
+    } else {
+        document.getElementById('playerOneScore').textContent = playerOne.name + " has " + playerOne.score + " points."
+    }
+    if (playerTwo.score === 1) {
+        document.getElementById('playerTwoScore').textContent = playerTwo.name + " has " + playerTwo.score + " point."
+    } else {
+        document.getElementById('playerTwoScore').textContent = playerTwo.name + " has " + playerTwo.score + " points."
+    }
     document.getElementById('playerTurn').textContent = "It is " + currentPlayer.name + "'s turn!"
     // document.getElementById('playerTurn').textContent = "It is " + currentPlayer.name + " (" + currentPlayer.marker + ")'s turn!"
 }
