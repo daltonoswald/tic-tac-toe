@@ -27,9 +27,9 @@ namesButton.addEventListener('click', () => {
     } else (playerTwo = new Player('Player Two', 'O', 0));
 
     if (marker1 === marker2) {
-        (playerOne = new Player('Player One', 'X', 0)) && (playerTwo = new Player('Player Two', 'O', 0));
+        (playerOne = new Player(name1, 'X', 0)) && (playerTwo = new Player(name2, 'O', 0));
+        resetGame();
     }
-    resetGame();
 });
 
 const gameBoard = ['', '', '', '', '', '', '', '', '',]
