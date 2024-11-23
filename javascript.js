@@ -15,21 +15,39 @@ namesButton.addEventListener('click', () => {
     const namesForm = document.querySelector('.names-form');
     name1 = namesForm[0].value;
     marker1 = namesForm[1].value;
+    console.log('name1', name1, marker1)
 
-    if (name1 != "" && marker1 != "") {
-    playerOne = new Player(name1, marker1, 0);
-    } else (playerOne = new Player('Player One', 'X', 0));
+    // if (name1 !== "" && marker1 !== "") {
+    //     playerOne = new Player(name1, marker1, 0);
+    // } else {
+    //     (playerOne = new Player('Player One', 'X', 0));
+    // }
+
+    if (name1 === '' && marker1 === "") {
+        (playerOne = new Player('Player One', 'X', 0));
+    } else {
+        playerOne = new Player(name1, marker1, 0);
+    }
 
     name2 = namesForm[2].value;
     marker2 = namesForm[3].value;
-    if (name2 != "" && marker1 != "") {
-    playerTwo = new Player(name2, marker2, 0);
-    } else (playerTwo = new Player('Player Two', 'O', 0));
-
-    if (marker1 === marker2) {
-        (playerOne = new Player(name1, 'X', 0)) && (playerTwo = new Player(name2, 'O', 0));
-        resetGame();
+    if (name2 !== "" && marker2 !== "") {
+        playerTwo = new Player(name2, marker2, 0);
+    } else {
+        (playerTwo = new Player('Player Two', 'O', 0));
     }
+
+    if ((marker1 === marker2) && (name1 !== name2)) {
+        playerOne = new Player(name1, 'X', 0)
+        playerTwo = new Player(name2, 'O', 0)
+    } else if ((name1 === name2) && (marker1 !== marker2)) {
+        playerOne = new Player('Player One', marker1, 0)
+        playerTwo = new Player('Player Two', marker2, 0)
+    } else if (name1 === name2) {
+        playerOne = new Player('Player One', 'X', 0)
+        playerTwo = new Player('Player Two', 'O', 0)
+    }
+    resetGame();
 });
 
 const gameBoard = ['', '', '', '', '', '', '', '', '',]
